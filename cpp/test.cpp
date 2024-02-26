@@ -21,10 +21,14 @@ int func2(int array[], int size){
     return sum;
 }
 
+int func(int &par){
+    par = 1000;
+    return par;
+}
+
 int main(){
     int a = 3;
     int &b = a;
-    int &c = b;
-    c++;
-    cout << a << b << c << endl;
+    cout << &a << "\t" << &b << endl;
+    cout << func(a) << a << b << endl;
 }
