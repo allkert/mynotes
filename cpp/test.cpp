@@ -1,34 +1,25 @@
 #include <iostream>
 #include <limits>
+#include<vector>
 
 
 
 using namespace std;
 
-int func1(int* array, int size){
-    int sum = 0;
-    for(int i = 0; i < size; i++){
-        sum += array[i];
+void text(){
+    vector<int> it;
+    for(int i = 0; i < 100; i++){
+        it.push_back(i);
     }
-    return sum;
-}
-
-int func2(int array[], int size){
-    int sum = 0;
-    for(int i = 0; i < size; i++){
-        sum += array[i];
+    // 第一种遍历方法
+    for(vector<int>:: iterator i = it.begin(); i < it.end(); i++){
+        cout << *i << endl;
     }
-    return sum;
-}
-
-int func(int &par){
-    par = 1000;
-    return par;
 }
 
 int main(){
-    int a = 3;
-    int &b = a;
-    cout << &a << "\t" << &b << endl;
-    cout << func(a) << a << b << endl;
+    vector<int> a({1, 2,3,4});
+    for(int i = 0; i <4; i++){
+        cout<<a[i];
+    }
 }
