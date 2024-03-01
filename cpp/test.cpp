@@ -17,9 +17,15 @@ void text(){
     }
 }
 
+vector<string> func(){
+    
+}
+
 int main(){
-    vector<int> a({1, 2,3,4});
-    for(int i = 0; i <4; i++){
-        cout<<a[i];
+    while (1)
+    {
+        cout<<"firstloop"<<endl;
+        if(1) break;
     }
+    return 0;
 }
