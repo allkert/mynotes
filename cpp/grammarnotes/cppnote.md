@@ -384,6 +384,34 @@ typedef struct {
 ```
 **结构体也存在指针，即指向结构体的指针**
 
+### 栈与队列
+1. 实现方式
+队列提供push 和 pop 等等接口，所有元素必须符合先进先出规则，所以队列不提供走访功能，也不提供迭代器(iterator)。
+实现方式有vector, deque, list等，主要就是两种实现方式：**数组和链表。**
+```cpp
+std::stack<int, std::vector<int>> third;  // 使用 vector 作为底层容器的栈
+std::quene<int, std::deque<int>> third;  // 使用 deque 作为底层容器的队列
+```
+所以STL队列不被归类为容器，而被归类为容器适配器。
+
+## 面向对象
+类是一种用户自定义的数据类型。类中的数据称为**成员变量**，类中的函数称为**成员函数**。
+### 类的声明
+```cpp
+class Box
+{
+   public:
+      double length;   // 长度
+      double breadth;  // 宽度
+      double height;   // 高度
+      double get(void);
+};
+double Box::get(void)
+{
+    return length * breadth * height;
+}
+```
+### 
 
 
 

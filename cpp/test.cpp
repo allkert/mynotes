@@ -1,6 +1,7 @@
-#include <iostream>
-#include <limits>
-
+# include<iostream>
+# include<limits>
+# include<sstream>
+# include<vector>
 
 
 using namespace std;
@@ -26,9 +27,20 @@ int func(int &par){
     return par;
 }
 
+std::vector<int> splitAndConvert(const std::string& str) {
+    std::istringstream iss(str);
+    std::vector<int> nums;
+    int num;
+    while (iss >> num) {
+        nums.push_back(num);
+    }
+    return nums;
+}
+
 int main(){
-    int a = 3;
-    int &b = a;
-    cout << &a << "\t" << &b << endl;
-    cout << func(a) << a << b << endl;
+    string s = "1 2 3 4 55 6";
+    vector<int> nums = splitAndConvert(s);
+    for(int num:nums){
+        cout<<num<<'\t';
+    }
 }
