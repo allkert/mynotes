@@ -3,51 +3,25 @@
 
 using namespace std;
 
-class test{
-public:
-    static void get(){
-        int a = 1;
-        cout << "now the val of a is " << a << endl;
-        a++;
-    }
-
-    void display(){
-        cout << "this is display function" << endl;
-    }
+struct TreeNode{
+    int val;
+    TreeNode *left, *right;
+    TreeNode(int x):val(x), left(nullptr), right(nullptr){};
 };
 
-static int count(){
-    static int a = 1;
-    a++;
-    return a;
+void test1(TreeNode* node){
+    node->val = 100;
 }
 
-
-class cmp{
-public:
-    bool operator()(int b, int a){
-        return a < b;
-    }
-};
-
-int ttt(){
-    cout <<"this" << endl;
-    return 100;
+void test2(TreeNode& node){
+    node.val = 100;
 }
 
-void add(){
-   cout << "����������" << endl;
-}
 int main(){
-   // �������add�ĵ�ַ
-   cout << ttt << endl;
-   // ��addȡ��ַ
-   cout << &add << endl;
-   // �Ժ�����ȡ����
-   cout << *add << endl;//�����涨�����ԲŻ�õ����?
-   // �����һ���ĵ�ַ�����Ƿ������Ͳ��?
-   cout << "sadf" << endl;
-   cout << typeid(add).name() << endl;
-   cout << typeid(&add).name() << endl;
-   cout << typeid(*add).name() << endl;
+    TreeNode* a = new TreeNode(1);
+    TreeNode b(1);
+    test1(a);
+    test2(b);
+    cout<<a->val<<endl;
+    cout<<b.val<<endl;
 }

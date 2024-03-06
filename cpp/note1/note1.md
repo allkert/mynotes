@@ -370,8 +370,6 @@ struct type_name {
 member_type1 member_name1;
 member_type2 member_name2;
 member_type3 member_name3;
-.
-.
 } object_names;
 // object_names是可选的，是结构体变量
 
@@ -383,6 +381,7 @@ typedef struct {
 } Person;
 ```
 **结构体也存在指针，即指向结构体的指针**
+**结构体作为函数参数时候是值传递，如果要改变结构体的值，需要传递指针或者引用**
 
 ### 迭代器
 迭代器是一种用于遍历容器的数据类型。迭代器是一个指向容器中元素的指针，可以通过迭代器来访问容器中的元素。

@@ -247,6 +247,8 @@ struct TreeNode{
     int val;
     TreeNode *left;
     TreeNode *right;
+    // 构造函数
     TreeNode(int x): val(x), left(NULL), right(Null){};
 }
 ```
+
