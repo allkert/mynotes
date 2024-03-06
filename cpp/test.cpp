@@ -1,31 +1,52 @@
-#include <iostream>
-#include <limits>
-#include<vector>
-
-
+# include<iostream>
+# include<queue>
 
 using namespace std;
 
-void text(){
-    vector<int> it;
-    for(int i = 0; i < 100; i++){
-        it.push_back(i);
+class test{
+public:
+    static void get(){
+        int a = 1;
+        cout << "now the val of a is " << a << endl;
+        a++;
     }
-    // 第一种遍历方法
-    for(vector<int>:: iterator i = it.begin(); i < it.end(); i++){
-        cout << *i << endl;
+
+    void display(){
+        cout << "this is display function" << endl;
     }
+};
+
+static int count(){
+    static int a = 1;
+    a++;
+    return a;
 }
 
-vector<string> func(){
-    
+
+class cmp{
+public:
+    bool operator()(int b, int a){
+        return a < b;
+    }
+};
+
+int ttt(){
+    cout <<"this" << endl;
+    return 100;
 }
 
+void add(){
+   cout << "����������" << endl;
+}
 int main(){
-    while (1)
-    {
-        cout<<"firstloop"<<endl;
-        if(1) break;
-    }
-    return 0;
+   // �������add�ĵ�ַ
+   cout << ttt << endl;
+   // ��addȡ��ַ
+   cout << &add << endl;
+   // �Ժ�����ȡ����
+   cout << *add << endl;//�����涨�����ԲŻ�õ����?
+   // �����һ���ĵ�ַ�����Ƿ������Ͳ��?
+   cout << typeid(add).name() << endl;
+   cout << typeid(&add).name() << endl;
+   cout << typeid(*add).name() << endl;
 }
