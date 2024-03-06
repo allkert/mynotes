@@ -1,46 +1,52 @@
 # include<iostream>
-# include<limits>
-# include<sstream>
-# include<vector>
-
+# include<queue>
 
 using namespace std;
 
-int func1(int* array, int size){
-    int sum = 0;
-    for(int i = 0; i < size; i++){
-        sum += array[i];
+class test{
+public:
+    static void get(){
+        int a = 1;
+        cout << "now the val of a is " << a << endl;
+        a++;
     }
-    return sum;
-}
 
-int func2(int array[], int size){
-    int sum = 0;
-    for(int i = 0; i < size; i++){
-        sum += array[i];
+    void display(){
+        cout << "this is display function" << endl;
     }
-    return sum;
+};
+
+static int count(){
+    static int a = 1;
+    a++;
+    return a;
 }
 
-int func(int &par){
-    par = 1000;
-    return par;
-}
 
-std::vector<int> splitAndConvert(const std::string& str) {
-    std::istringstream iss(str);
-    std::vector<int> nums;
-    int num;
-    while (iss >> num) {
-        nums.push_back(num);
+class cmp{
+public:
+    bool operator()(int b, int a){
+        return a < b;
     }
-    return nums;
+};
+
+int ttt(){
+    cout <<"this" << endl;
+    return 100;
 }
 
+void add(){
+   cout << "函数被调用" << endl;
+}
 int main(){
-    string s = "1 2 3 4 55 6";
-    vector<int> nums = splitAndConvert(s);
-    for(int num:nums){
-        cout<<num<<'\t';
-    }
+   // 输出函数add的地址
+   cout << ttt << endl;
+   // 对add取地址
+   cout << &add << endl;
+   // 对函数名取内容
+   cout << *add << endl;//这样规定，所以才会得到地址
+   // 结果是一样的地址，但是返回类型不同
+   cout << typeid(add).name() << endl;
+   cout << typeid(&add).name() << endl;
+   cout << typeid(*add).name() << endl;
 }
