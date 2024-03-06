@@ -252,3 +252,25 @@ struct TreeNode{
 }
 ```
 
+### stack
+1. stack的初始化
+```c++
+
+//1、创建一个空的栈s1
+stack<int> s1;
+stack<int,list<int>> s1;
+ 
+//2、用vector容器初始化stack
+vector<int> v1={1,2,3,4};
+stack<int,vector<int>> s2(v1);   //1,2,3,4依次入栈
+ 
+//3、用deque容器初始化stack
+//用deque为stack初始化时deque可省  因为stack是基于deque实现的, 默认以deque方式构造
+deque<int> d1 = {1,2,3,4,5};
+stack<int,deque<int>> s3(d1);
+stack<int> s4(d1);  
+ 
+//4、用list容器初始化stack
+list<int> l1 = {1,2,3,4,5};
+stack<int,list<int>> s5(l1)
+```
