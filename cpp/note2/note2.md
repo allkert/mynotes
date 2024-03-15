@@ -274,3 +274,10 @@ stack<int> s4(d1);
 list<int> l1 = {1,2,3,4,5};
 stack<int,list<int>> s5(l1)
 ```
+
+### accumulate函数
+accumulate函数是C++标准库中的函数，用于计算区间内元素的累加值。accumulate函数的定义如下：
+```c++
+accumulate(first, last, init);
+```
+其中，first和last是迭代器，init是初始值。accumulate函数的作用是计算[first, last)区间内元素的累加值，初始值为init。accumulate函数的返回值是累加值。
