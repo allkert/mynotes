@@ -228,5 +228,78 @@ class Box
 | :: | 域运算符 |
 | ?: | 条件运算符 |
 | sizeof | 长度运算符 |
-| # | 预处理符号 |
+| # | 预处理符号 |  
 
+### 3. 继承
+作用：允许使用一个类来定义另一个类，从而提高代码的复用性。 
+#### 基类和派生类
+被继承的类称为**基类**，继承的类称为**派生类**。 一个类可以派生自多个类（多继承）。
+`class derived-class: access-specifier base-class` 
+deriver-class是派生类，base-class是基类或者基类列表，access-specifier是访问修饰符。 
+#### 派生类的权限
+父类：
+| 访问 | public | protected | private |
+| --- | --- | --- | --- |
+| 同类 | true | true | true |
+| 派生类 | true | true | false |
+| 外部 | true | false | false | 
+#### 继承类型
+access-specifier是访问修饰符，可以是public、protected、private。
+| 访问修饰符 | 继承类型 | 继承规则 |
+| -- | -- | -- |
+| public | 共有继承 |public -> public, protected -> protected, private -> private|
+| protected | 保护继承 |  public，protected -> protected, private -> private |
+| private | 私有继承 | public, protected, private -> private | 
+
+#### 多继承
+一个子类可以同时继承多个父类的属性.
+
+格式： class 子类名: 访问权限 父类名1, 访问权限 父类名2, ...  
+当出现重名的成员时，需要使用作用域解析运算符来指明调用的是哪个类的成员。  
+
+### 4. 多态
+#### 虚函数实现多态
+c++多态性是允许将父类的指针赋值给子类的指针。多态性是通过虚函数实现的。
+实现方法：在基类中声明虚函数，在派生类中重写该函数。 虚函数的作用是告诉编译器不要静态链接到该函数，而是在运行时确定函数的调用。
+```cpp
+#include<queue>
+#include<iostream>
+
+using namespace std;
+
+
+class A{
+public:
+    virtual void print(){
+        cout << "this is class A" << endl;
+    }
+};
+
+class B: public A{
+public:
+    void print(){
+        cout << "this is class B" << endl;
+    }
+};
+
+class C: public A{
+public:
+    void print(){
+        cout << "this is class C" << endl;
+    }
+};
+
+int main(){
+    A* a = new A();
+    B b;
+    C c;
+    a->print();
+    a = &b;
+    a->print();
+    a = &c;
+    a->print();
+}
+```   
+这会输出："this is class A" "this is class B" "this is class C"。如果不使用虚函数，那么输出的都是"this is class A"。 
+#### 纯虚函数
+您可能想要在基类中定义虚函数，以便在派生类中重新定义该函数更好地适用于对象，但是您在基类中又不能对虚函数给出有意义的实现，这个时候就会用到纯虚函数。**纯虚函数是一种在基类中声明的虚函数，它在基类中没有定义，但是在派生类中必须定义。**
