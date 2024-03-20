@@ -22,6 +22,7 @@ class C: public A{
 public:
     void print(){
         cout << "this is class C" << endl;
+        A::print();
     }
 };
 
