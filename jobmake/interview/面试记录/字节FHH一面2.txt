@@ -1,0 +1,63 @@
+1. 自我介绍
+2. 学院多少人，排名， 考研还是保研
+3. 有客户端相关的开发经验吗？
+4. python和cpp的内存管理是怎么样的？有什么区别？
+5. 看代码调用的是基类的虚函数还是子类的虚函数
+代码在微信图片
+6. 手撕两道
+class Bitset {
+private:
+    vector<int> arr;   // 存储每一位的数组
+    int cnt = 0;   // 1 的个数
+    int reversed = 0;   // 反转操作的次数奇偶性
+public:
+    Bitset(int size) {
+        arr.resize(size);
+        cnt = 0;
+        reversed = 0;
+    }
+    
+    void fix(int idx) {
+        if ((arr[idx] ^ reversed) == 0) {
+            arr[idx] ^= 1;
+            ++cnt;
+        }
+    }
+    
+    void unfix(int idx) {
+        if ((arr[idx] ^ reversed) == 1) {
+            arr[idx] ^= 1;
+            --cnt;
+        }
+    }
+    
+    void flip() {
+        reversed ^= 1;
+        cnt = arr.size() - cnt;
+    }
+    
+    bool all() {
+        return cnt == arr.size();
+    }
+    
+    bool one() {
+        return cnt > 0;
+    }
+    
+    int count() {
+        return cnt;
+    }
+    
+    string toString() {
+        string res;
+        for (int bit: arr) {
+            res.push_back('0' + (bit ^ reversed));
+        }
+        return res;
+    }
+};
+
+一个int可以存32位   四个字节  但是现在只用来存一位了， 然后要做操作的时候就需要查找这个bit在哪个int里面，去修改这个对应的int的数值，通过位运算  
+
+7. 你是怎么考量的，现在所学和工作实际需要的区别，最近有没有学习什么新内容 
+
